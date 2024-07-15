@@ -1,0 +1,609 @@
+
+<html lang="pt"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://i.imgur.com/4yyJw4E.png">
+  <title>POLÍCIA PBR - Login</title>
+  <link href="https://kit-pro.fontawesome.com/releases/v6.2.1/css/pro.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style type="text/css">
+
+
+
+
+.conteudo {
+    opacity: 0; /* Inicialmente, o elemento estará invisível */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Aplica a animação ao elemento com uma duração de 1 segundo */
+#meuElemento {
+    animation: fadeIn 4s ease-out forwards;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  background: #f8ab1b00 url(https://i.imgur.com/LFDTXVc.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(0px);
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Defina a animação keyframe */
+@keyframes piscar {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Aplique a animação ao elemento h1 */
+h1 {
+  animation: piscar 4s infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto */
+}
+
+.left-login > h1 {
+  font-size: 5vw;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  margin-bottom: -3vw;
+}
+
+.left-login > p {
+  font-size: 2vw;
+  color: whitesmoke;
+}
+
+.left-login-image {
+    width: 15vw;
+    margin-bottom: -3vw;
+}
+
+.right-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-login-avatar {
+  position: fixed;
+  top: 37px;
+  margin-left: -24vw;
+  object-fit: cover;
+  width: 128px;
+  height: 99px;
+  object-position: 0px -42px;
+}
+
+.card-login {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px #00000056;
+}
+
+.card-login > h1 {
+  color: #111A08;
+  font-weight: 400;
+  margin: unset;
+}
+
+.textfield {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.textfield > input {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 15px;
+  background: #ffffff;
+  color: #111A08;
+  font-size: 12px;
+  border-radius: 1px 8px 8px 1px;
+  box-shadow: inset 0 2px 2px rgb(27 31 35 / 8%);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield > label {
+  text-align: center;
+  color: #ffffff;
+  width: 13.1%;
+  padding: 9.5px;
+  margin: 0px 0px;
+  border: 5.9px solid #111A08;
+  border-radius: 8px 0px 0px 8px;
+  background: #111A08;
+  box-shadow: inset 0 2px 2px rgb(27 31 35 / 8%);
+}
+.textfield > input::placeholder {
+  color: #818181;
+}
+
+.suporte {
+  justify-content: space-between;
+}
+
+.textfield > a {
+  text-decoration: none;
+  color: #111A08;
+  font-size: 1.2vw;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 16px 0px;
+  margin: 25px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #ffffff;
+  background: #111A08;
+  cursor: pointer;
+  box-shadow: 0px 10px 20px -12px #5a3600;
+  transition: 1s ease;
+}
+
+.btn-login:hover {
+  box-shadow: none;
+  background: #283020;
+  transition: 1s ease;
+}
+
+.right-balao {
+  position: fixed;
+  top: 80px;
+  margin-left: 92px;
+  background: white;
+  border-radius: 4px;
+  padding: 4px;
+  border: 1px solid #8d8d8d;
+}
+
+.right-balao:after {
+position: absolute;
+    top: 13px;
+    left: calc(-3% - 7px);
+    content: '';
+    -webkit-filter: drop-shadow(0 3px 9px rgba(0,0,0,0.18));
+    filter: drop-shadow(0 3px 9px rgba(0,0,0,0.18));
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid #dbdbdb;
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
+}
+
+@media only screen and (max-width: 950px){
+  .card-login {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .main-login {
+    flex-direction: column;
+  }
+  .right-login-avatar, .right-balao {
+    display: none;
+  }
+  .left-login {
+    width: 100%;
+    height: auto;
+  }
+  .right-login {
+    width: 100%;
+    height: auto;
+  }
+  .left-login-image {
+    width: 55vw;
+    margin-bottom: -20vw;
+  }
+  .left-login > h1 {
+    font-size: 11vw;
+    margin-bottom: -8vw;
+  }
+  .left-login > p {
+    font-size: 4vw;
+  }
+  .textfield > a {
+    font-size: 4vw;
+  }
+  .card-login {
+    width: 98%;
+  }
+  .textfield > label {
+    width: 12%;
+  }
+}
+
+/** Java Script - CSS **/
+    .locked-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #79a8d1;
+      height: 5px;
+      width: 0;
+      z-index: 9998;
+    }
+
+    .alert {
+      padding: 20px;
+      border: solid 1px;
+      position: relative;
+      text-align: center;
+      z-index: 9997;
+    }
+
+    .alert .alert-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20px;
+    }
+
+    .alert .alert-close {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .alert .alert-close:hover {
+      color: #212121;
+    }
+
+    .alert.alert-danger {
+      background-color: #ffddd3;
+      border-color: #d18a75;
+      color: #902605;
+    }
+
+    .alert.alert-info {
+      background-color: #d9edf7;
+      border-color: #b4dff6;
+      color: #31708f;
+    }
+
+    .alert.alert-danger.alert-invalid-userdata {
+      border: none;
+      border-top: solid 1px #d18a75;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .alert.alert-info.loging-info {
+      border: none;
+      border-bottom: solid 1px #b4dff6;
+      padding-top: 25px;
+    }
+
+    .alert.alert-info.loging-info .alert-close {
+      display: none;
+    }
+
+    .title h2 {
+      font-weight: 300;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 900px) {
+      .wrapper {
+        width: 40%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .alert .alert-close {
+        position: static;
+        transform: none;
+        display: block;
+        margin-top: 10px;
+      }
+      
+      .alert .alert-icon {
+        position: static;
+        transform: none;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .wrapper {
+        width: 70%;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .wrapper {
+        width: 80%;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .wrapper {
+        width: 90%;
+      }
+    }
+
+
+    /* Aplique a animação de revelar ao elemento p */
+p {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: revelar 3s forwards;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adiciona sombra ao texto */
+}
+
+</style></head>
+
+
+
+<body>
+  <div class="main-login">
+    <div class="left-login">
+      <img src="https://i.imgur.com/4yyJw4E.png" class="left-login-image">
+      <h1>POLÍCIA PBR</h1>
+      <p>Pelotão Brasileiro Revolucionário</p>
+    </div>
+    <div class="right-login" id="meuElemento">
+        <form class="card-login">
+        
+        <div class="textfield">
+          <label for="usuario"><i class="fa-solid fa-user"></i></label>
+          <input type="text" id="login-username" name="usuario" placeholder="Usuário" autocomplete="off" required="">
+        </div>
+        <div class="textfield">
+          <label for="senha"><i class="fa-solid fa-key"></i></label>
+          <input type="password" id="login-password" name="senha" placeholder="Senha" autocomplete="off" required="">
+        </div>
+        <div class="textfield suporte">
+          <a class="registro" href="/register"><i class="fa-solid fa-user-plus"></i> Criar conta</a>
+          <a class="senhaesquecida" href="/profile?mode=sendpassword" tabindex="-1"><i class="fa-solid fa-key"></i> Esqueceu a senha?</a>
+        </div>
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+    </div> 
+  </div>
+      <!-- <a href="https://www.forumeiros.com" target="_blank">forumeiros.com</a> -->
+
+<!-- JavaScripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    (function ($) {
+      'use strict';
+
+      $(function () {
+
+        var $bar = $('<div>', {
+          'class': 'locked-bar',
+          'style': ''
+        });
+
+        $('form').on('submit', function (event) {
+
+          if ($(this).find('.btn-progress').length > 0) {
+            return false;
+          }
+
+          event.preventDefault();
+
+          $(this)
+            .find('button[type="submit"]')
+              .html(function () {
+
+                if ($(this).is('.btn-progress')) {
+                  return $(this).html();
+                }
+
+                return '<i class="fa fa-circle-o-notch fa-spin"></i> ' + $(this).html();
+              })
+                .addClass('btn-progress')
+          ;
+
+          alert.info([
+            '<i class="fa fa-circle-o-notch fa-spin"></i> Carregando...',
+           'Seja bem-vindo(a) ao fórum do <strong>Pelotão Brasileiro Revolucionário</strong>!'
+          ].join('<br />\n'), 'loging-info');
+
+          $bar
+            .css('width', 0)
+              .appendTo('body')
+                .animate({
+                  width: '100%',
+                }, {
+
+                  duration: 60000,
+                  easing: 'linear',
+
+                  progress: function () {
+                    $('input').prop('disabled', true);
+
+                    $('html').addClass('is-locked');
+                  },
+
+                  done: function () {
+
+                    $('input').prop('disabled', false);
+
+                    $bar.remove();
+
+                    $('.btn-progress')
+                      .removeClass('btn-progress btn-danger')
+                        .addClass('btn-primary')
+                          .find('.fa')
+                            .remove()
+                    ;
+
+                    $('html').removeClass('is-locked');
+                    $('.loging-info').remove();
+                  }
+                })
+          ;
+
+          $.post('/login', {
+            username: $('#login-username').val(),
+            password: $('#login-password').val(),
+            autologin: 'on',
+            login: ''
+          })
+            .done(function (context) {
+
+             if(context.search('Introduziu um nome de usuário desativado ou inexistente, ou uma senha incorreta') > 0) {
+                alert.danger([
+                  'Você especificou um usuário e/ou senhas incorreto(s)!',
+          'Para a sua segurança, você só poderá tentar fazer login novamente dentro de <strong>um minuto</strong>.'
+                ].join('<br />\n'), 'alert-invalid-userdata');
+
+                $('.btn-progress')
+                  .addClass('btn-danger')
+                    .removeClass('btn-primary')
+                      .find('.fa')
+                        .removeClass('fa-circle-o-notch fa-spin')
+                          .addClass('fa-exclamation-triangle')
+                ;
+
+                return;
+              }
+
+              location.pathname = '/forum';
+            })
+            .fail(function (pa1, pa2) {
+
+              $bar.stop().remove();
+
+              $('.btn-progress')
+                .removeClass('btn-progress')
+                  .find('i.fa')
+                    .remove()
+              ;
+
+              $('html').removeClass('is-locked');
+              $('.loging-info').remove();
+
+              alert.danger([
+                'Erro geral. [AJAX ERROR]',
+                'Tente novamente. Caso o problema continue, contate o Departamento Técnico.'
+              ].join('<br />\n'), 'alert-invalid-userdata');
+            })
+          ;
+
+        });
+
+        window.alert = {
+          danger: function (content, alertClass, selector) {
+            if (!selector) {
+              $('body').prepend([
+                '<div class="alert alert-danger ' + alertClass + '">',
+                '  <i class="alert-icon fa fa-exclamation-triangle"></i>',
+                '  <span class="alert-text">', content, '</span>',
+                '  <span class="alert-close fa fa-times"></span>',
+                '</div>'
+              ].join('\n'));
+
+              return;
+            }
+
+            $(selector).prepend([
+              '<div class="alert alert-danger ' + alertClass + '">',
+              '  <i class="alert-icon fa fa-exclamation-triangle"></i>',
+              '  <span class="alert-text">', content, '</span>',
+              '  <span class="alert-close fa fa-times"></span>',
+              '</div>'
+            ].join('\n'));
+          },
+
+          info: function (content, alertClass, selector) {
+            if (!selector) {
+              $('body').prepend([
+                '<div class="alert alert-info ' + alertClass + '">',
+                '  <i class="alert-icon fa fa-info"></i>',
+                '  <span class="alert-text">', content, '</span>',
+                '  <span class="alert-close fa fa-times"></span>',
+                '</div>'
+              ].join('\n'));
+
+              return;
+            }
+
+            $(selector).prepend([
+              '<div class="alert alert-danger ' + alertClass + '">',
+              '  <i class="alert-icon fa fa-info"></i>',
+              '  <span class="alert-text">', content, '</span>',
+              '  <span class="alert-close fa fa-times"></span>',
+              '</div>'
+            ].join('\n'));
+          }
+        };
+
+        $('body')
+          .on('click', '.alert-close', function () {
+            $(this).parents('.alert').remove();
+          })
+        ;
+      });
+    }(jQuery));
+
+
+// script.js
+window.onload = function() {
+    var elemento = document.getElementById("meuElemento");
+    elemento.style.opacity = 1; // Garante que a animação seja aplicada
+};
+
+
+
+  </script>
+
+
+</body></html>
